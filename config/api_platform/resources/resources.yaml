@@ -1,0 +1,9 @@
+#resources:
+#    App\Entity\TvShow:
+#        attributes:
+#            input_formats:
+#                json: application/json
+#        itemOperations:
+#            get:
+#                path: 'tv_shows/{id}'
+#                controller: App\Controller\TvShowController

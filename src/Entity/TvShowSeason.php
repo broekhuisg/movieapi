@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\TvShowSeasonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,7 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TvShowSeasonRepository::class)
  */
-#[ApiResource]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
 class TvShowSeason
 {
     /**
@@ -23,6 +27,7 @@ class TvShowSeason
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read", "write"})
      */
     private $seasonNumber;
 
@@ -33,6 +38,7 @@ class TvShowSeason
 
     /**
      * @ORM\OneToMany(targetEntity=TvShowEpisode::class, mappedBy="season")
+     * @Groups({"read", "write"})
      */
     private $episodes;
 

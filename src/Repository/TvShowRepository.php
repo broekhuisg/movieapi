@@ -19,7 +19,7 @@ class TvShowRepository extends ServiceEntityRepository
         parent::__construct($registry, TvShow::class);
     }
 
-    public function getTvShowWithSeasons($id)
+    public function findTvShowWithSeasons($id)
     {
         return $this->createQueryBuilder('tvs')
             ->where('tvs.id = :id')
@@ -31,7 +31,7 @@ class TvShowRepository extends ServiceEntityRepository
             ;
     }
 
-    public function getTvShowWithSeasonsAndEpisodes($id)
+    public function findTvShowWithSeasonsAndEpisodes($id)
     {
         return $this->createQueryBuilder('tvs')
             ->where('tvs.id = :id')

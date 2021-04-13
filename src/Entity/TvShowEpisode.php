@@ -3,17 +3,22 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\TvShowEpisodeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=TvShowEpisodeRepository::class)
  */
-#[ApiResource]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
 class TvShowEpisode extends Media
 {
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read", "write"})
      */
     private $duration;
 
@@ -24,6 +29,7 @@ class TvShowEpisode extends Media
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read", "write"})
      */
     private $episodeNumber;
 

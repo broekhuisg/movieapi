@@ -1,0 +1,6 @@
+resources:
+    App\Entity\TvShow:
+        itemOperations:
+            get:
+                path: 'tv_shows/{id}'
+                controller: App\Controller\TvShowController

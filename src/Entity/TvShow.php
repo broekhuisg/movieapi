@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\TvShowRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,7 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TvShowRepository::class)
  */
-#[ApiResource]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
 class TvShow
 {
     /**
@@ -24,16 +28,19 @@ class TvShow
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read", "write"})
      */
     private ?string $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read", "write"})
      */
     private ?string $posterPath;
 
     /**
      * @ORM\OneToMany(targetEntity=TvShowSeason::class, mappedBy="tvShow")
+     * @Groups({"read", "write"})
      */
     private $seasons;
 
@@ -74,10 +81,10 @@ class TvShow
     /**
      * @return Collection|TvShowSeason[]
      */
-//    public function getSeasons(): Collection
-//    {
-//        return $this->seasons;
-//    }
+    public function getSeasons(): Collection
+    {
+        return $this->seasons;
+    }
 
     public function addSeason(TvShowSeason $season): self
     {
