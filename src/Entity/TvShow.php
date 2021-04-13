@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\TvShowRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TvShowRepository::class)
  */
+#[ApiResource]
 class TvShow
 {
     /**
@@ -71,10 +74,10 @@ class TvShow
     /**
      * @return Collection|TvShowSeason[]
      */
-    public function getSeasons(): Collection
-    {
-        return $this->seasons;
-    }
+//    public function getSeasons(): Collection
+//    {
+//        return $this->seasons;
+//    }
 
     public function addSeason(TvShowSeason $season): self
     {
