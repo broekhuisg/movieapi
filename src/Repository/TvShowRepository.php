@@ -19,6 +19,32 @@ class TvShowRepository extends ServiceEntityRepository
         parent::__construct($registry, TvShow::class);
     }
 
+    public function getTvShowWithSeasons($id)
+    {
+        return $this->createQueryBuilder('tvs')
+            ->where('tvs.id = :id')
+            ->setParameter('id', $id)
+            ->innerJoin('tvs.seasons', 's')
+            ->addSelect('s')
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
+    public function getTvShowWithSeasonsAndEpisodes($id)
+    {
+        return $this->createQueryBuilder('tvs')
+            ->where('tvs.id = :id')
+            ->setParameter('id', $id)
+            ->innerJoin('tvs.seasons', 's')
+            ->addSelect('s')
+            ->innerJoin('s.episodes', 'e')
+            ->addSelect('e')
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
     // /**
     //  * @return TvShow[] Returns an array of TvShow objects
     //  */

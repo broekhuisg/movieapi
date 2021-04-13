@@ -12,7 +12,7 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'default')]
     public function index(): Response
     {
-        $show = $this->getDoctrine()->getRepository(TvShow::class)->find(121);
+        $show = $this->getDoctrine()->getRepository(TvShow::class)->getTvShowWithSeasonsAndEpisodes(1);
         dump($show);
 
         return $this->render('default/index.html.twig', [
