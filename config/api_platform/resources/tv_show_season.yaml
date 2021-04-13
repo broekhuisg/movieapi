@@ -1,6 +1,0 @@
-resources:
-    App\Entity\TvShowSeason:
-        itemOperations:
-            get:
-                path: 'tv_show_seasons/{id}'
-                controller: App\Controller\TvShowSeasonController

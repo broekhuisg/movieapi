@@ -12,10 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TvShowSeasonRepository::class)
  */
-#[ApiResource(
-    normalizationContext: ['groups' => ['read']],
-    denormalizationContext: ['groups' => ['write']]
-)]
+//#[ApiResource(
+//    normalizationContext: ['groups' => ['read']],
+//    denormalizationContext: ['groups' => ['write']]
+//)]
 class TvShowSeason
 {
     /**
