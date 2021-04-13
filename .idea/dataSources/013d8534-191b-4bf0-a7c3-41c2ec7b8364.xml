@@ -1057,151 +1057,183 @@ symfony|schema||appuser||UPDATE|G</Grants>
     <table id="332" parent="3" name="tv_show">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <column id="333" parent="327" name="id">
+    <table id="333" parent="3" name="tv_show_season">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <column id="334" parent="327" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="334" parent="327" name="person_id">
+    <column id="335" parent="327" name="person_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="335" parent="327" name="media_id">
+    <column id="336" parent="327" name="media_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="336" parent="327" name="role">
+    <column id="337" parent="327" name="role">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="337" parent="327" name="IDX_12B8B9F6217BBB47">
+    <index id="338" parent="327" name="IDX_12B8B9F6217BBB47">
       <ColNames>person_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="338" parent="327" name="IDX_12B8B9F6EA9FDD75">
+    <index id="339" parent="327" name="IDX_12B8B9F6EA9FDD75">
       <ColNames>media_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="339" parent="327" name="PRIMARY">
+    <key id="340" parent="327" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="340" parent="327" name="FK_12B8B9F6217BBB47">
+    <foreign-key id="341" parent="327" name="FK_12B8B9F6217BBB47">
       <ColNames>person_id</ColNames>
       <RefTableName>person</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="341" parent="327" name="FK_12B8B9F6EA9FDD75">
+    <foreign-key id="342" parent="327" name="FK_12B8B9F6EA9FDD75">
       <ColNames>media_id</ColNames>
       <RefTableName>media</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="342" parent="328" name="version">
+    <column id="343" parent="328" name="version">
       <Position>1</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="343" parent="328" name="executed_at">
+    <column id="344" parent="328" name="executed_at">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="344" parent="328" name="execution_time">
+    <column id="345" parent="328" name="execution_time">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <key id="345" parent="328" name="PRIMARY">
+    <key id="346" parent="328" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="346" parent="329" name="id">
+    <column id="347" parent="329" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="347" parent="329" name="title">
+    <column id="348" parent="329" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="329" name="poster_path">
+    <column id="349" parent="329" name="poster_path">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="329" name="type">
+    <column id="350" parent="329" name="type">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="350" parent="329" name="PRIMARY">
+    <key id="351" parent="329" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="351" parent="330" name="id">
+    <column id="352" parent="330" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="330" name="duration">
+    <column id="353" parent="330" name="duration">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="353" parent="330" name="PRIMARY">
+    <key id="354" parent="330" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="354" parent="330" name="FK_1D5EF26FBF396750">
+    <foreign-key id="355" parent="330" name="FK_1D5EF26FBF396750">
       <ColNames>id</ColNames>
       <RefTableName>media</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="355" parent="331" name="id">
+    <column id="356" parent="331" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="356" parent="331" name="first_name">
+    <column id="357" parent="331" name="first_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="331" name="last_name">
+    <column id="358" parent="331" name="last_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="358" parent="331" name="PRIMARY">
+    <key id="359" parent="331" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="359" parent="332" name="id">
+    <column id="360" parent="332" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="360" parent="332" name="PRIMARY">
+    <key id="361" parent="332" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="361" parent="332" name="FK_F1399B9DBF396750">
+    <foreign-key id="362" parent="332" name="FK_F1399B9DBF396750">
       <ColNames>id</ColNames>
       <RefTableName>media</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="363" parent="333" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="364" parent="333" name="tv_show_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="365" parent="333" name="season_number">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="366" parent="333" name="IDX_6282E6635E3A35BB">
+      <ColNames>tv_show_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="367" parent="333" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="368" parent="333" name="FK_6282E6635E3A35BB">
+      <ColNames>tv_show_id</ColNames>
+      <RefTableName>tv_show</RefTableName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>
