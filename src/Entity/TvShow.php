@@ -10,8 +10,25 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TvShowRepository::class)
  */
-class TvShow extends Media
+class TvShow
 {
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $posterPath;
+
     /**
      * @ORM\OneToMany(targetEntity=TvShowSeason::class, mappedBy="tvShow")
      */
@@ -19,8 +36,36 @@ class TvShow extends Media
 
     public function __construct()
     {
-        parent::__construct();
         $this->seasons = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getPosterPath(): ?string
+    {
+        return $this->posterPath;
+    }
+
+    public function setPosterPath(string $posterPath): self
+    {
+        $this->posterPath = $posterPath;
+
+        return $this;
     }
 
     /**

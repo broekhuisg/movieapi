@@ -25,14 +25,6 @@ class MediaFixtures extends Fixture
             $manager->persist($movie);
         }
 
-        for($i=0; $i<10; $i++) {
-            $this->faker = Factory::create();
-            $show = new TvShow();
-            $show->setTitle($this->faker->company);
-            $show->setPosterPath('posterpathoftvshow');
-            $manager->persist($show);
-        }
-
         $manager->flush();
     }
 }

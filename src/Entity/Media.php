@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=MediaRepository::class)
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({"movie"="Movie", "tvshow"="TvShow", "episode"="TvShowEpisode"})
+ * @ORM\DiscriminatorMap({"movie"="Movie", "episode"="TvShowEpisode"})
  */
 abstract class Media
 {
