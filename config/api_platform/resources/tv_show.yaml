@@ -1,6 +1,7 @@
 resources:
     App\Entity\TvShow:
+        shortName: 'Tvshow'
         itemOperations:
             get:
-                path: 'tv_shows/{id}'
+                path: 'tvshows/{id}'
                 controller: App\Controller\TvShowController
