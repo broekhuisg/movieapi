@@ -1,0 +1,39 @@
+resources:
+    App\Entity\User:
+        shortName: 'User'
+        attributes:
+            normalization_context:
+                groups: ['read', 'user', 'invoice']
+            denormalization_context:
+                groups: ['write']
+        collectionOperations:
+            get:
+                security: 'is_granted("ROLE_ADMIN")'
+            post:
+                normalization_context:
+                    groups: ['credentials']
+                denormalization_context:
+                    groups: ['credentials']
+            get_me:
+                pagination_enabled: false
+                method: 'GET'
+                path: '/users/get_me'
+                controller: App\Controller\Actions\GetMeAction
+        itemOperations:
+            get:
+                security: 'is_granted("ROLE_ADMIN") or (user != "anon." and object.getId() == user.getId())'
+            put:
+                validation_groups: ['Default', 'invoice']
+                security: 'is_granted("ROLE_ADMIN") or (user != "anon." and object.getId() == user.getId())'
+                denormalization_context:
+                    groups: ['invoice']
+            add_media:
+                method: 'PUT'
+                path: '/users/{id}/add-media'
+                controller: App\Controller\Actions\ManageMediaToUserAction
+                security: 'is_granted("ROLE_ADMIN") or (user != "anon." and object.getId() == user.getId())'
+            remove_media:
+                method: 'PUT'
+                path: '/users/{id}/remove-media'
+                controller: App\Controller\Actions\ManageMediaToUserAction
+                security: 'is_granted("ROLE_ADMIN") or (user != "anon." and object.getId() == user.getId())'

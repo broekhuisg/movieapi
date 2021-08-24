@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$colors: (
+  'black_rock': #2E323E,
+  'gun_metal': #45555A,
+  'keppel': #37A1A4,
+  'moderate_cyan': #44BFC2,
+  'osly_gray': #81878C,
+  'bombay': #ADB2B7,
+  'athens_gray': #EEEEF3,
+  'black_haze': #F7F7F7
+);
+
+$theme-colors: (
+  'primary': map_get($colors, 'keppel'),
+  'secondary': map_get($colors, 'black_rock')
+);
+
+$btn-padding-y: .3rem;
+$btn-padding-x: 1.75rem;
+$btn-border-width: 2px;
+$btn-font-weight: 700;
+
+$font-family-sans-serif: 'Quicksand', 'Arial', 'Verdana', 'Tahoma', sans-serif;

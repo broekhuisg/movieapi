@@ -1,0 +1,8 @@
+resources:
+    App\Entity\Person:
+        shortName: 'Person'
+        attributes:
+            normalization_context:
+                groups: read
+            denormalization_context:
+                groups: write

@@ -1,0 +1,14 @@
+resources:
+    App\Entity\Movie:
+        shortName: 'Movie'
+        attributes:
+            normalization_context:
+                groups: read
+            denormalization_context:
+                groups: write
+        collectionOperations:
+            get_featured:
+                pagination_enabled: false
+                method: 'GET'
+                path: '/movies/featured'
+                controller: App\Controller\Actions\GetFeaturedMoviesAction

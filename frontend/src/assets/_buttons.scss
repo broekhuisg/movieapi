@@ -1,0 +1,11 @@
+.btn-primary {
+  color: map-get($theme-colors, 'secondary');
+}
+
+.btn-outline-primary {
+  color: white;
+}
+
+.btn {
+  text-transform: uppercase;
+}
