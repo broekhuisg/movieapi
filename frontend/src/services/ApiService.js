@@ -44,18 +44,6 @@ const ApiService = {
                 });
         });
     },
-
-    getFeaturedMovies() {
-        return new Promise((resolve, reject) => {
-            axios.get('/movies/featured')
-                .then(response => {
-                    resolve(response)
-                })
-                .catch(function(error) {
-                    reject(error.response)
-                });
-        });
-    }
 }
 
 export default ApiService

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\MovieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,16 +14,19 @@ class Movie extends Media
 {
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read", "user"})
      */
     private ?string $duration;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"read", "user"})
      */
     private $inTheaterStart;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"read", "user"})
      */
     private $inTheaterEnd;
 

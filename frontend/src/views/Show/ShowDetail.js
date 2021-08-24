@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from '../../axios-api'
-import ApiService from "../../services/ApiService"
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
