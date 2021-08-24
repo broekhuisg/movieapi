@@ -12,3 +12,8 @@ resources:
                 method: 'GET'
                 path: '/movies/featured'
                 controller: App\Controller\Actions\GetFeaturedMoviesAction
+            get_in_theater:
+                pagination_enabled: false
+                method: 'GET'
+                path: '/movies/in_theater'
+                controller: App\Controller\Actions\GetInTheaterMoviesAction

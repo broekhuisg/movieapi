@@ -28,6 +28,17 @@ class MovieRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function getInTheaterMovies()
+    {
+        return $this->createQueryBuilder('m')
+            ->where('m.inTheaterStart <= :today')
+            ->andWhere('m.inTheaterEnd >= :today')
+            ->orderBy('m.id', 'ASC')
+            ->setParameter('today', new \DateTime('today') )
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Movie[] Returns an array of Movie objects
     //  */

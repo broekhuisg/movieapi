@@ -25,6 +25,8 @@ class MediaFixtures extends Fixture implements DependentFixtureInterface
             $movie->setHeroPath($this->faker->imageUrl('1920', '1080', 'animals'));
             $movie->setDuration($this->faker->numberBetween(60, 180));
             $movie->setFeatured(false);
+            $movie->setInTheaterStart(new \DateTime("yesterday"));
+            $movie->setInTheaterEnd(new \DateTime("tomorrow"));
 
             $manager->persist($movie);
         }

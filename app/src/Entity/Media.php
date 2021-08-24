@@ -57,11 +57,6 @@ abstract class Media
      */
     private $featured;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $exi;
-
     public function __construct()
     {
         $this->persons = new ArrayCollection();
@@ -174,18 +169,6 @@ abstract class Media
     public function setFeatured(bool $featured): self
     {
         $this->featured = $featured;
-
-        return $this;
-    }
-
-    public function getExi(): ?string
-    {
-        return $this->exi;
-    }
-
-    public function setExi(string $exi): self
-    {
-        $this->exi = $exi;
 
         return $this;
     }
